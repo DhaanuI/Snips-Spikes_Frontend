@@ -71,7 +71,7 @@ const card_div = document.querySelector(".card-service-page");
 
 async function getData() {
   try {
-    let data = await fetch("http://localhost:5500/services/male/");
+    let data = await fetch("http://localhost:8080/services/male/");
     data = await data.json();
     renderData(data);
     console.log(data);
@@ -266,7 +266,7 @@ async function renderData(product_data) {
 
 async function getServiceDat(id) {
   try {
-    let data = await fetch(`http://localhost:5500/services/male/${id}`);
+    let data = await fetch(`http://localhost:8080/services/male/${id}`);
     data = await data.json();
     sessionStorage.setItem("service_data", JSON.stringify(data));
   } catch (error) {
