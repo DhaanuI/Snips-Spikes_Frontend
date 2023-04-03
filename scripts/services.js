@@ -130,7 +130,7 @@ async function renderData(product_data) {
 
   async function getServiceDat(id) {
     try {
-      let data = await fetch(`http://localhost:8080/services/female/${id}`)
+      let data = await fetch(`https://nice-pink-antelope-gear.cyclic.app/services/female/${id}`)
       data = await data.json()
       sessionStorage.setItem("service_data",JSON.stringify(data));
       window.location.href = "../html/styler.html"
