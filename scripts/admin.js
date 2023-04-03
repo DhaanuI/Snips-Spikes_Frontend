@@ -13,6 +13,12 @@ const Passwords = document.querySelector("#password");
 
 SubmitButton.addEventListener("click", () => {
 
+if(UserNames.value == "admin"){
+  if(Passwords.value == "hairsalon"){
+    window.location.href = "adminrender.html"
+  }
+}
+
   const Credentials = {
     UserName:UserNames.value,
     Password:Passwords.value
@@ -114,3 +120,5 @@ Moon.addEventListener("click", (e) => {
      window.location.reload();
   }
 });
+
+
