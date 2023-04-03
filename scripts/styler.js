@@ -18,7 +18,7 @@ time_btn.addEventListener("submit",(event)=>{
 
 let fetAllStylerFn=async(obj)=>{
     try {
-        let req=await fetch("http://localhost:8080/stylist/styler",{
+        let req=await fetch("https://nice-pink-antelope-gear.cyclic.app/stylist/styler",{
             method:"GET",
             headers:{
                 "Content-Type":"application/json"
@@ -105,7 +105,7 @@ let renderStylerFunction=(allData,obj)=>{
 
 
  let availablilityCheckerFunction = (obj) => {
-    fetch("http://localhost:8080/appointments/appointment", {
+    fetch("https://nice-pink-antelope-gear.cyclic.app/appointments/appointment", {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -145,7 +145,7 @@ let renderStylerFunction=(allData,obj)=>{
 
 async function createAppointmentFunction(obj){
     try {
-        let add_req=await fetch(`http://localhost:8080/appointments/appointment/add`,{
+        let add_req=await fetch(`https://nice-pink-antelope-gear.cyclic.app/appointments/appointment/add`,{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"

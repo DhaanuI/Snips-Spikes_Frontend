@@ -119,7 +119,7 @@ window.onload=fetAllAppointmentFn(userdata.userid);
 
 async function fetAllAppointmentFn(userid){
     try {
-        let req=await fetch("http://localhost:8080/appointments/appointment",{
+        let req=await fetch("https://nice-pink-antelope-gear.cyclic.app/appointments/appointment",{
             method:"GET",
             headers:{
                 "Content-Type":"application/json"
@@ -168,7 +168,7 @@ async function renderAppointmentFunction(data){
 
 async function deleteAppointmentFunction(id){
     try {
-        let delete_req=await fetch(`http://localhost:8080/appointments/appointment/delete/${id}`,{
+        let delete_req=await fetch(`https://nice-pink-antelope-gear.cyclic.app/appointments/appointment/delete/${id}`,{
             method:"DELETE",
             headers:{
                 "Content-Type":"application/json"

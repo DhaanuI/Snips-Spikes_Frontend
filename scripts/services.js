@@ -68,7 +68,7 @@ const card_div = document.querySelector(".car-div");
 
 async function getData (){
   try {
-    let data = await fetch("http://localhost:8080/services/female/")
+    let data = await fetch("https://nice-pink-antelope-gear.cyclic.app/services/female/")
     data = await data.json();
     renderData(data);
     console.log(data);
