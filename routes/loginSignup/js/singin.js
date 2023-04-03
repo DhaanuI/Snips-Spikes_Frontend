@@ -50,7 +50,7 @@ from.addEventListener('submit', (e) => {
     let password = from.your_pass.value;
     login({ email, password })
     loading()
-    // console.log(email, password);
+    console.log(email, password);
 })
 
 
