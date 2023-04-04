@@ -13,12 +13,6 @@ const Passwords = document.querySelector("#password");
 
 SubmitButton.addEventListener("click", () => {
 
-if(UserNames.value == "admin"){
-  if(Passwords.value == "hairsalon"){
-    window.location.href = "adminrender.html"
-  }
-}
-
   const Credentials = {
     UserName:UserNames.value,
     Password:Passwords.value
@@ -51,7 +45,7 @@ const AdminDataPost = async (Credentials) =>{
 
     const data = await res.json();
 
-    if(res.status==202){ 
+    if(res.status==200){ 
         (UserNames.value = ""), 
         (Passwords.value = ""),
 
@@ -120,5 +114,3 @@ Moon.addEventListener("click", (e) => {
      window.location.reload();
   }
 });
-
-
