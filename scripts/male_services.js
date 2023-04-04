@@ -255,9 +255,11 @@ async function renderData(product_data) {
   console.log(bookapointment);
   for (let btn of bookapointment) {
     btn.addEventListener("click", (event) => {
-      // console.log(event.target)
+      console.log("data",event.target)
       let product_id = event.target.id;
       getServiceDat(product_id);
+      console.log("product ID", product_id)
+      window.location.href = "../html/styler.html"
     });
   }
 
