@@ -10,11 +10,18 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+#footer {
+  margin-top: auto;
 }
 #NAVBAR {
   border: 1px solid transparent;
 }
 .services-main-div {
+  flex: 1;
   padding-top: 100px;
   padding-bottom: 20px;
 }
