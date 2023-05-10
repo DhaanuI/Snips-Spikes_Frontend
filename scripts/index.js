@@ -9,8 +9,7 @@ window.onload = () => {
   document.getElementById("logo-href").href = "index.html";
   document.getElementById("bookhref").href = "./html/gender.html";
   document.getElementById("viewhref").href = "./html/appointment.html";
-  document.getElementById("contacthref").href = "../index.html";
-  // document.getElementById("loginhref").href = "./routes/loginSignup/login.html";
+  document.getElementById("contacthref").href = "./html/feedbackForm.html";
 };
 
 let nav = document.getElementById("NAVBAR");

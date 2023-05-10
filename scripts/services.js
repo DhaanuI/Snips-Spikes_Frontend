@@ -26,7 +26,6 @@ window.addEventListener("scroll", function () {
   var navBar = document.querySelector(".nav");
   if (document.documentElement.scrollTop > 50) {
     navBar.classList.add("affix");
-    console.log("Working");
   } else {
     navBar.classList.remove("affix");
   }
@@ -39,7 +38,6 @@ const observer = new IntersectionObserver((entries) => {
   const isVisible = entries[0].isIntersecting;
   if (!isVisible) {
     navBar.classList.add("affix");
-    console.log("Working");
   } else {
     navBar.classList.remove("affix");
   }
@@ -67,9 +65,7 @@ footer.innerHTML = Footer();
 /*                     copy this to get navbar and footer                     */
 /* -------------------------------------------------------------------------- */
 
-// let insta = document.getElementById("insta");
 
-// console.log(insta.src)
 
 /* -------------------------------------------------------------------------- */
 /*           clearing the localStorage and changing Login to Logout           */
@@ -125,7 +121,6 @@ async function getData() {
     );
     data = await data.json();
     renderData(data);
-    console.log(data);
   } catch (error) {
     console.log(error);
   }
@@ -156,14 +151,12 @@ function getCard(data) {
 }
 
 async function renderData(product_data) {
-  console.log(product_data);
   let datadisplay = document.querySelector(".cards-div");
   datadisplay.innerHTML = getCard(product_data);
 
   // bookapointment button
 
   let bookapointment = document.querySelectorAll(".button");
-  console.log(bookapointment);
   for (let btn of bookapointment) {
     btn.addEventListener("click", (event) => {
       let product_id = event.target.id;

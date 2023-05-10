@@ -4,6 +4,23 @@ time_btn.addEventListener("submit", (event) => {
   event.preventDefault();
   let userdata = JSON.parse(localStorage.getItem("userdata"));
   let service_data = JSON.parse(sessionStorage.getItem("service_data"));
+
+  console.log(userdata)
+
+  if(userdata==null){
+    return Swal.fire({
+      title: 'Login First',
+      width:"30%",
+      background:"white",
+      color:"red",
+      confirmButton:true
+    }).then((value)=>{
+      if(value.isConfirmed) {
+        window.location.href = "../index.html"
+      }
+   })  
+  }
+
   let obj = {};
   obj["date"] = document.querySelector("#date").value;
   obj["time"] = document.querySelector("#time").value;
@@ -43,7 +60,6 @@ let fetAllStylerFn = async (obj) => {
 window.onload = fetAllStylerFn();
 
 let renderStylerFunction = (allData, obj) => {
-  //console.log(allData);
   let displayContainer = document.getElementById("styler_grid");
   displayContainer.innerHTML = null;
   let stylerArr = allData.map((item) => {
@@ -68,7 +84,6 @@ let renderStylerFunction = (allData, obj) => {
         obj["stylerid"] = stylerid;
         obj["styler_name"] = styler_name;
 
-        console.log(obj);
         availablilityCheckerFunction(obj);
       } else {
         alert("please select date and time");
@@ -77,35 +92,7 @@ let renderStylerFunction = (allData, obj) => {
   }
 };
 
-//  let availablilityCheckerFunction=async(obj)=>{
-//      try {
-//          let req=await fetch("http://localhost:8080/appointments/appointment",{
-//              method:"GET",
-//              headers:{
-//                  "Content-Type":"application/json"
-//              }
-//          });
-//          if(req.ok){
-//              let allData=await req.json();
-//              let newData=allData.sort((item)=>{
-//                  if(item.stylerid===obj.stylerid&&item.date===obj.date&&item.time===obj.time){
-//                      return item;
-//                  }
-//              })
-//              console.log(allData,newData);
-//              if(newData.length!=0){
-//                  return true;
-//              }else{
-//                  return false;
-//              }
-//          }else{
-//              alert("Unable to Load the Appointment Data");
-//          }
-//      } catch (error) {
-//          console.log(error.message);
-//          alert("Unable to Load the Appointment Data");
-//      }
-//  }
+
 
 let availablilityCheckerFunction = (obj) => {
   fetch("https://nice-pink-antelope-gear.cyclic.app/appointments/appointment", {
@@ -128,7 +115,7 @@ let availablilityCheckerFunction = (obj) => {
                 return item;
               }
             });
-            console.log(allData, newData);
+
             if (newData.length != 0) {
               alert("This slot is not available, Please choose another slot!");
             } else {
@@ -200,7 +187,6 @@ window.addEventListener("scroll", function () {
   var navBar = document.querySelector(".nav");
   if (document.documentElement.scrollTop > 50) {
     navBar.classList.add("affix");
-    console.log("Working");
   } else {
     navBar.classList.remove("affix");
   }
@@ -213,7 +199,6 @@ const observer = new IntersectionObserver((entries) => {
   const isVisible = entries[0].isIntersecting;
   if (!isVisible) {
     navBar.classList.add("affix");
-    console.log("Working");
   } else {
     navBar.classList.remove("affix");
   }
@@ -240,9 +225,7 @@ footer.innerHTML = Footer();
 /*                     copy this to get navbar and footer                     */
 /* -------------------------------------------------------------------------- */
 
-// let insta = document.getElementById("insta");
 
-// console.log(insta.src)
 
 /* -------------------------------------------------------------------------- */
 /*           clearing the localStorage and changing Login to Logout           */
