@@ -30,6 +30,7 @@ time_btn.addEventListener("submit", (event) => {
   obj["service_des"] = service_data.data.description;
   obj["user_email"] = userdata.email;
   obj["user_name"] = userdata.name;
+  console.log(obj);
   fetAllStylerFn(obj);
   Swal.fire('Date and Time are Selected, Now please choose your styler')
 });
@@ -37,7 +38,7 @@ time_btn.addEventListener("submit", (event) => {
 let fetAllStylerFn = async (obj) => {
   try {
     let req = await fetch(
-      "https://nice-pink-antelope-gear.cyclic.app/stylist/styler",
+      "https://hair-salon-backend.onrender.com/stylist/styler",
       {
         method: "GET",
         headers: {
@@ -95,7 +96,7 @@ let renderStylerFunction = (allData, obj) => {
 
 
 let availablilityCheckerFunction = (obj) => {
-  fetch("https://nice-pink-antelope-gear.cyclic.app/appointments/appointment", {
+  fetch("https://hair-salon-backend.onrender.com/appointments/appointment", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -139,7 +140,7 @@ let availablilityCheckerFunction = (obj) => {
 async function createAppointmentFunction(obj) {
   try {
     let add_req = await fetch(
-      `https://nice-pink-antelope-gear.cyclic.app/appointments/appointment/add`,
+      `https://hair-salon-backend.onrender.com/appointments/appointment/add`,
       {
         method: "POST",
         headers: {
@@ -170,7 +171,7 @@ window.onload = () => {
   document.getElementById("logo-href").href = "../index.html";
   document.getElementById("bookhref").href = "gender.html";
   document.getElementById("viewhref").href = "appointment.html";
-  document.getElementById("contacthref").href = "../index.html";
+  document.getElementById("contacthref").href = "./feedbackForm.html";
   // document.getElementById("loginhref").href =
   //   "../routes/loginSignup/login.html";
 };
