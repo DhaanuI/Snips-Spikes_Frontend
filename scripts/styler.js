@@ -5,8 +5,6 @@ time_btn.addEventListener("submit", (event) => {
   let userdata = JSON.parse(localStorage.getItem("userdata"));
   let service_data = JSON.parse(sessionStorage.getItem("service_data"));
 
-  console.log(userdata)
-
   if(userdata==null){
     return Swal.fire({
       title: 'Login First',
@@ -30,7 +28,6 @@ time_btn.addEventListener("submit", (event) => {
   obj["service_des"] = service_data.data.description;
   obj["user_email"] = userdata.email;
   obj["user_name"] = userdata.name;
-  console.log(obj);
   fetAllStylerFn(obj);
   Swal.fire('Date and Time are Selected, Now please choose your styler')
 });
@@ -50,11 +47,20 @@ let fetAllStylerFn = async (obj) => {
       let allData = await req.json();
       renderStylerFunction(allData, obj);
     } else {
-      alert("Unable to Load the Data");
+      Swal.fire({
+        title: 'Unable to Load the Data',
+        width:"25%",
+        background:"#243b55",
+        color:"red"
+      })
     }
   } catch (error) {
-    console.log(error.message);
-    alert("Unable to Load the Data");
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Bad Request 404',
+      width:"25%",
+    })
   }
 };
 
@@ -87,7 +93,12 @@ let renderStylerFunction = (allData, obj) => {
 
         availablilityCheckerFunction(obj);
       } else {
-        alert("please select date and time");
+        Swal.fire({
+          title: 'Please select Date and Time',
+          width:"25%",
+          background:"#243b55",
+          color:"red"
+        })
       }
     });
   }
@@ -118,22 +129,41 @@ let availablilityCheckerFunction = (obj) => {
             });
 
             if (newData.length != 0) {
-              alert("This slot is not available, Please choose another slot!");
+              Swal.fire({
+                title: 'This slot is not available, Please choose another slot !',
+                width:"26%",
+                background:"#243b55",
+                color:"red"
+              })
             } else {
               //sendMailFunction(obj);
               createAppointmentFunction(obj);
             }
           })
           .catch(() => {
-            alert("Unable to Load the Appointment Data");
+            Swal.fire({
+              title: 'Unable to Load the Appointment Data',
+              width:"26%",
+              background:"#243b55",
+              color:"red"
+            })
           });
       } else {
-        alert("Unable to Load the Appointment Data");
+        Swal.fire({
+          title: 'Unable to Load the Appointment Data',
+          width:"26%",
+          background:"#243b55",
+          color:"red"
+        })
       }
     })
     .catch((error) => {
-      console.log(error.message);
-      alert("Unable to Load the Appointment Data");
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Bad Request 404',
+        width:"25%",
+      })
     });
 };
 
@@ -152,11 +182,20 @@ async function createAppointmentFunction(obj) {
     if (add_req.ok) {
       window.location.href = "./appointment.html";
     } else {
-      alert("unable to add new appointment!");
+      Swal.fire({
+        title: 'Unable to add new appointment !',
+        width:"25%",
+        background:"#243b55",
+        color:"red"
+      })
     }
   } catch (error) {
-    console.log(error.message);
-    alert("unable to add new appointment!");
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Bad Request 404',
+      width:"25%",
+    })
   }
 }
 

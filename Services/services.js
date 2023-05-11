@@ -176,6 +176,11 @@ async function getServiceDat(id) {
     sessionStorage.setItem("service_data", JSON.stringify(data));
     window.location.href = "../html/styler.html";
   } catch (error) {
-    console.log(error);
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Bad Request 404',
+      width:"25%",
+    })
   }
 }
