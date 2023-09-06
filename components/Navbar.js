@@ -9,10 +9,11 @@ let Navbar = () => {
       </div>
       <div id="mainListDiv" class="main_list">
         <ul id="navlinks" class="navlinks">
-          <li><a id="bookhref" href="#">Book Appointment</a></li>
-          <li><a id="viewhref" href="#"> View Appointment</a></li>
-          <li><a id="contacthref" href="#">Contact US</a></li>
-          <li><a id="loginhref" href="#">Login</a></li>
+        <li><a id="bookhref" href="#">Book Appointment</a></li>
+        <li><a id="viewhref" href="#"> View Appointment</a></li>
+        <li><a id="contacthref" href="#">Contact US</a></li>
+        <li><a id="adminloginhref" href="#">Admin Login</a></li>
+        <li><a id="loginhref" href="#">User Login</a></li>
         </ul>
       </div>
       <span id="navTrigger" class="navTrigger">

@@ -49,7 +49,7 @@ const AdminDataPost = async (Credentials) =>{
     if(res.status==200){ 
         (UserNames.value = ""), 
         (Passwords.value = ""),
-
+        sessionStorage.setItem('message',data.Message);
          Swal.fire({
           title: 'Please Confirm ',
           showCancelButton: true,

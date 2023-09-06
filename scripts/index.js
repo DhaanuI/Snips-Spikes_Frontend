@@ -10,6 +10,7 @@ window.onload = () => {
   document.getElementById("bookhref").href = "./html/gender.html";
   document.getElementById("viewhref").href = "./html/appointment.html";
   document.getElementById("contacthref").href = "./html/feedbackForm.html";
+  document.getElementById("adminloginhref").href = "./html/admin.html";
 };
 
 let nav = document.getElementById("NAVBAR");
