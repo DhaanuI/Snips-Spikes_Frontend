@@ -11,6 +11,7 @@ window.onload = () => {
   document.getElementById("viewhref").href = "./html/appointment.html";
   document.getElementById("contacthref").href = "./html/feedbackForm.html";
   document.getElementById("adminloginhref").href = "./html/admin.html";
+  document.getElementById("loginhref").href = "./routes/loginSignup/login.html";
 };
 
 let nav = document.getElementById("NAVBAR");
